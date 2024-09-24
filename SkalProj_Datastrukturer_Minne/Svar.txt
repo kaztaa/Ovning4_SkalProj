@@ -1,5 +1,0 @@
-1. Stacken är ordnad, heap inte. 
-2. Value types är variabler som håller värdet, Referens value pekar på en hållare av värdet. 
-Den första har automatisk garbage collector medan den senare inte har det och måste skötas manuellt.
-3. x sätts bara en gång, x = 3, det som händer med y är bara att y sätts till x och sedan ändras till 4,
-men det har som sagt inget med x att göra. I den andra så sätts y.MyValue = 4 precis innan den skrivs ut.
