@@ -120,6 +120,15 @@ namespace SkalProj_Datastrukturer_Minne
 
 
 
+
+                // Svar på frågor:
+                // 2: När nyttjad kapacitet överstiger sin gräns expanderar den.
+                // 3: Kapaciteten dubblas för varje gång.
+                // 4: Den underliggande arrayen dubbleras vid varje utökning / kopiering av sig själv
+                // 5: Nej, kapaciteten förblir densamma.
+                // 6: Vet man hur många items är en array bra, vet man inte är lista enklare att hantera.
+
+
             }
         }
 
