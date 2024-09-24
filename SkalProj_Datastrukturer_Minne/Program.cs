@@ -72,18 +72,62 @@ namespace SkalProj_Datastrukturer_Minne
              * Below you can see some inspirational code to begin working.
             */
 
-            //List<string> theList = new List<string>();
-            //string input = Console.ReadLine();
-            //char nav = input[0];
-            //string value = input.substring(1);
+            List<string> theList = new List<string>();
+            while (true)
+            {
+                Console.WriteLine("+ add to list, - remove from list, e for exit to menu:");
+                string input = Console.ReadLine();
 
-            //switch(nav){...}
+                // Check if input length is 0
+                if (input.Length == 0) 
+                    continue;
+
+                
+                char nav = input[0];
+
+                // Removing empty space in string
+                string value = input.Substring(1).Trim();
+
+                switch (nav)
+                {
+                    case '+':
+                        theList.Add(value);
+                        Console.WriteLine($"Adding: {value}");
+
+                        break;
+
+                    case '-':
+                        if (theList.Remove(value))
+                            Console.WriteLine($"Removing: {value}");
+
+                        else
+                            Console.WriteLine($"Can't find {value} in list, try again");
+
+                        break;
+                    default:
+                        Console.WriteLine("Only + or -");
+
+                        break;
+                }
+
+                // Write list current capacity status
+                Console.WriteLine($"Count of items: {theList.Count}");
+                Console.WriteLine($"Capacity of list: {theList.Capacity}");
+
+                // Exit loop if user hits e
+                if (input.ToLower() == "e")
+                    break;
+
+
+
+            }
         }
 
-        /// <summary>
-        /// Examines the datastructure Queue
-        /// </summary>
-        static void ExamineQueue()
+          
+            /// <summary>
+            /// Examines the datastructure Queue
+            /// </summary>
+            static void ExamineQueue()
         {
             /*
              * Loop this method untill the user inputs something to exit to main menue.
