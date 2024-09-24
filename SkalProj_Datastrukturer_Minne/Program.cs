@@ -75,7 +75,7 @@ namespace SkalProj_Datastrukturer_Minne
             List<string> theList = new List<string>();
             while (true)
             {
-                Console.WriteLine("+ add to list, - remove from list, e for exit to menu:");
+                Console.WriteLine("+ add to list, - remove from list, Q quit to menu:");
                 string input = Console.ReadLine();
 
                 // Check if input length is 0
@@ -105,7 +105,7 @@ namespace SkalProj_Datastrukturer_Minne
 
                         break;
                     default:
-                        Console.WriteLine("Only + or -");
+                        Console.WriteLine("Only + or - or Q quit to menu");
 
                         break;
                 }
@@ -115,7 +115,7 @@ namespace SkalProj_Datastrukturer_Minne
                 Console.WriteLine($"Capacity of list: {theList.Capacity}");
 
                 // Exit loop if user hits e
-                if (input.ToLower() == "e")
+                if (input.ToLower() == "q")
                     break;
 
 
@@ -132,19 +132,65 @@ namespace SkalProj_Datastrukturer_Minne
             }
         }
 
-          
-            /// <summary>
-            /// Examines the datastructure Queue
-            /// </summary>
-            static void ExamineQueue()
+
+        /// <summary>
+        /// Examines the datastructure Queue
+        /// </summary>
+        static void ExamineQueue()
         {
             /*
              * Loop this method untill the user inputs something to exit to main menue.
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
-        }
 
+            Queue<string> theQueue = new Queue<string>();
+            while (true)
+            {
+                Console.WriteLine("E - for Enqueueing or D for Dequeueing or Q quit to menu: ");
+                string input = Console.ReadLine();
+
+                // Check if input length is 0
+                if (input.Length == 0)
+                    continue;
+
+
+                char nav = input[0];
+
+                // Removing empty space in string
+                string value = input.Substring(1).Trim();
+                switch (nav)
+                {
+                    case 'e':
+                        {
+                            Console.WriteLine("Enter somting to add to queue: ");
+                            string qInput = Console.ReadLine();
+                            Console.WriteLine($"Adding {qInput} to queue");
+
+                            theQueue.Enqueue(qInput);
+                            break;
+                        }
+                    case 'd': 
+                        {
+                            if (theQueue.Count > 0)
+                                Console.WriteLine($"Dequeued '{theQueue.Dequeue()}' from queue");
+                            else
+                                Console.WriteLine("Queue is empty");
+                            break;
+                        }
+
+                    default:
+                        {
+                            Console.WriteLine("Only use D or E or Q quit to menu");
+                            break;
+                        }
+                }
+                // Exit loop if user hits e
+                if (input.ToLower() == "q")
+                    break;
+
+            }
+        }
         /// <summary>
         /// Examines the datastructure Stack
         /// </summary>
@@ -155,6 +201,56 @@ namespace SkalProj_Datastrukturer_Minne
              * Create a switch with cases to push or pop items
              * Make sure to look at the stack after pushing and and poping to see how it behaves
             */
+
+            // Fråga 1 - Första personen kan få vänta väldigt länge, om kön aldrig blir tom blir det aldrig denns tur..
+        
+            Stack<string> stack = new Stack<string>();
+            while (true)
+            {
+                Console.WriteLine("Enter P for push or O for Pop, Q quit to menu: ");
+                string input = Console.ReadLine();
+
+                // Check if input length is 0
+                if (input.Length == 0)
+                    continue;
+                else if (input.ToLower() == "q") 
+                    break; 
+                
+
+
+                char nav = input[0];
+
+                // Removing empty space in string
+                string value = input.Substring(1).Trim();
+                switch (nav)
+                {
+                    case 'p':
+                        {
+                            Console.WriteLine("Enter somting to add to stack: ");
+                            string qInput = Console.ReadLine();
+                            Console.WriteLine($"Adding {qInput} to stack");
+
+                            stack.Push(qInput);
+                            break;
+                        }
+                    case 'o':
+                        {
+                            if (stack.Count > 0)
+                                Console.WriteLine($"Popping '{stack.Pop()}' from stack");
+                            else
+                                Console.WriteLine("Stack is empty");
+                            break;
+                        }
+
+                    default:
+                        {
+                            Console.WriteLine("Only use Push or Pop or Q quit to menu");
+                            break;
+                        }
+                }
+
+
+            }
         }
 
         static void CheckParanthesis()
