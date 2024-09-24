@@ -261,6 +261,41 @@ namespace SkalProj_Datastrukturer_Minne
              * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
              */
 
+            // Starting with a new stack of chars
+            Stack<char> charStack = new Stack<char>();
+
+            Console.WriteLine("Enter a string to check paranthesis: ");
+            string stringInput = Console.ReadLine();
+
+            for (int i = 0; i < stringInput.Length; i++)
+            {
+
+                // Check if char is opening bracket, if so push to stack
+                if (stringInput[i] == '(' || stringInput[i] == '[' || stringInput[i] == '{')
+                {
+                    charStack.Push(stringInput[i]);
+                }
+                else
+                {
+                    // Check if char is closing bracket, if stack is and top item is a matching bracket
+                    if (charStack.Count > 0 &&
+                        ((charStack.Peek() == '(' && stringInput[i] == ')') ||
+                         (charStack.Peek() == '[' && stringInput[i] == ']') ||
+                         (charStack.Peek() == '{' && stringInput[i] == '}')))
+                    {
+                        charStack.Pop();
+
+                    }
+                } 
+            }
+
+
+            // If stack is empty the stack is empty, then paranthesis is ok
+            if (charStack.Count == 0)
+                Console.WriteLine("Nothing left in the stack - paranthesis is correct!");
+            else
+                Console.WriteLine("Stack is not empty, paranthesis is not corret!");
+
         }
 
     }
