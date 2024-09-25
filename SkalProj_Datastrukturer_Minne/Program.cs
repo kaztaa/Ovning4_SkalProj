@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace SkalProj_Datastrukturer_Minne
 {
@@ -10,6 +11,8 @@ namespace SkalProj_Datastrukturer_Minne
         /// <param name="args"></param>
         static void Main()
         {
+            // the n:th even number
+            //int nth = 5;
 
             while (true)
             {
@@ -18,6 +21,8 @@ namespace SkalProj_Datastrukturer_Minne
                     + "\n2. Examine a Queue"
                     + "\n3. Examine a Stack"
                     + "\n4. CheckParenthesis"
+                    + "\n5. RecursiveEven"
+                    + "\n6. fibonacciCalc"
                     + "\n0. Exit the application");
                 char input = ' '; //Creates the character input to be used with the switch-case below.
                 try
@@ -43,19 +48,26 @@ namespace SkalProj_Datastrukturer_Minne
                     case '4':
                         CheckParanthesis();
                         break;
-                    /*
-                     * Extend the menu to include the recursive 
-                     * and iterative exercises.
-                     */
+                    case '5':
+                        RecursiveEven();
+                        break;
+                    case '6':
+                        fibonacciCalc();
+                        break;
+                        
                     case '0':
                         Environment.Exit(0);
                         break;
                     default:
-                        Console.WriteLine("Please enter some valid input (0, 1, 2, 3, 4)");
+                        Console.WriteLine("Please enter some valid input (0, 1, 2, 3, 4, 5, 6)");
                         break;
                 }
             }
         }
+
+
+
+
 
         /// <summary>
         /// Examines the datastructure List
@@ -298,6 +310,33 @@ namespace SkalProj_Datastrukturer_Minne
 
         }
 
+
+
+     
+
+
+        
+
+        //static void RecursiveEven(int n)
+        static void RecursiveEven()
+        {
+            bool done;
+            Console.WriteLine("Enter the n:th even number: ");
+            string input = Console.ReadLine();
+            int n;
+            done = int.TryParse(input, out n);
+
+            for (int i = 0; i < n; i++)
+            {
+                if ((i % 2 == 0) && (i != 0))
+                    Console.WriteLine(i);
+            }
+        }
+        private static void fibonacciCalc()
+        {
+
+
+        }
     }
 }
 
