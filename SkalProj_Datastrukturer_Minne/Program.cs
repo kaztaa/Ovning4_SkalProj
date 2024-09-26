@@ -53,14 +53,19 @@ namespace SkalProj_Datastrukturer_Minne
                         Console.WriteLine(RecursiveEven(10));
                         break;
                     case '6':
-                        Console.WriteLine(fibonacciCalc(11));
+                        Console.WriteLine(fibonacciCalc(8));
                         break;
-                        
+                    case '7':
+                        Console.WriteLine(IterativeEven(10));
+                        break;
+                    case '8':
+                        Console.WriteLine(fibonacciCalc(1));
+                        break;
                     case '0':
                         Environment.Exit(0);
                         break;
                     default:
-                        Console.WriteLine("Please enter some valid input (0, 1, 2, 3, 4, 5, 6)");
+                        Console.WriteLine("Please enter some valid input (0, 1, 2, 3, 4, 5, 6, 7, 8)");
                         break;
                 }
             }
@@ -311,10 +316,6 @@ namespace SkalProj_Datastrukturer_Minne
 
         }
 
-
-
-
-
         static int RecursiveEven(int n)
         {
             if (n == 1)
@@ -326,14 +327,15 @@ namespace SkalProj_Datastrukturer_Minne
 
         static int fibonacciCalc(int n)
         {
-            if (n == 0)
-                return 0;
-            if (n == 1)
-                return 1;
+            if (n <= 1)
+                return n;
+
             return fibonacciCalc(n - 1) + fibonacciCalc(n - 2);
 
 
         }
+
+
     }
 }
 
