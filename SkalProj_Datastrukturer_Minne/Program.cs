@@ -24,6 +24,8 @@ namespace SkalProj_Datastrukturer_Minne
                     + "\n4. CheckParenthesis"
                     + "\n5. RecursiveEven"
                     + "\n6. fibonacciCalc"
+                    + "\n7. IterativeEven"
+                    + "\n8. fibonacciCalcIterative"
                     + "\n0. Exit the application");
                 char input = ' '; //Creates the character input to be used with the switch-case below.
                 try
@@ -50,13 +52,13 @@ namespace SkalProj_Datastrukturer_Minne
                         CheckParanthesis();
                         break;
                     case '5':
-                        Console.WriteLine(RecursiveEven(10));
+                        Console.WriteLine(RecursiveEven(11));
                         break;
                     case '6':
                         Console.WriteLine(fibonacciCalc(8));
                         break;
                     case '7':
-                        Console.WriteLine(IterativeEven(10));
+                        Console.WriteLine(IterativeEven(11));
                         break;
                     case '8':
                         Console.WriteLine(fibonacciCalc(1));
@@ -335,6 +337,10 @@ namespace SkalProj_Datastrukturer_Minne
 
         }
 
+        static int IterativeEven(int n)
+        {
+            return n * 2;
+        }
 
     }
 }
