@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Design;
 using System.Runtime.CompilerServices;
 
 namespace SkalProj_Datastrukturer_Minne
@@ -49,10 +50,10 @@ namespace SkalProj_Datastrukturer_Minne
                         CheckParanthesis();
                         break;
                     case '5':
-                        RecursiveEven();
+                        Console.WriteLine(RecursiveEven(10));
                         break;
                     case '6':
-                        fibonacciCalc();
+                        Console.WriteLine(fibonacciCalc(11));
                         break;
                         
                     case '0':
@@ -312,28 +313,24 @@ namespace SkalProj_Datastrukturer_Minne
 
 
 
-     
 
 
-        
-
-        //static void RecursiveEven(int n)
-        static void RecursiveEven()
+        static int RecursiveEven(int n)
         {
-            bool done;
-            Console.WriteLine("Enter the n:th even number: ");
-            string input = Console.ReadLine();
-            int n;
-            done = int.TryParse(input, out n);
+            if (n == 1)
+                return 2;
 
-            for (int i = 0; i < n; i++)
-            {
-                if ((i % 2 == 0) && (i != 0))
-                    Console.WriteLine(i);
-            }
+            return 2 + RecursiveEven(n - 1);
+
         }
-        private static void fibonacciCalc()
+
+        static int fibonacciCalc(int n)
         {
+            if (n == 0)
+                return 0;
+            if (n == 1)
+                return 1;
+            return fibonacciCalc(n - 1) + fibonacciCalc(n - 2);
 
 
         }
