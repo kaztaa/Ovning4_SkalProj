@@ -23,9 +23,9 @@ namespace SkalProj_Datastrukturer_Minne
                     + "\n3. Examine a Stack"
                     + "\n4. CheckParenthesis"
                     + "\n5. RecursiveEven"
-                    + "\n6. fibonacciCalc"
+                    + "\n6. fibonacciCalc n=11"
                     + "\n7. IterativeEven"
-                    + "\n8. fibonacciCalcIterative"
+                    + "\n8. fibonacciCalcIterative n=11"
                     + "\n0. Exit the application");
                 char input = ' '; //Creates the character input to be used with the switch-case below.
                 try
@@ -55,13 +55,13 @@ namespace SkalProj_Datastrukturer_Minne
                         Console.WriteLine(RecursiveEven(11));
                         break;
                     case '6':
-                        Console.WriteLine(fibonacciCalc(8));
+                        Console.WriteLine(fibonacciCalc(12));
                         break;
                     case '7':
                         Console.WriteLine(IterativeEven(11));
                         break;
                     case '8':
-                        Console.WriteLine(fibonacciCalc(1));
+                        Console.WriteLine(fibonacciCalcIterative(12));
                         break;
                     case '0':
                         Environment.Exit(0);
@@ -341,6 +341,33 @@ namespace SkalProj_Datastrukturer_Minne
         {
             return n * 2;
         }
+
+        static int fibonacciCalcIterative(int n)
+        {
+            int result = 0;
+
+            int prevNumberOne = 0;  
+            int prevNumberTwo = 1;  
+
+
+            if (n <= 1)
+                return n;
+
+            for (int i = 2; i <= n; i++)
+            {
+                // result = f(n-1) + f(n-2)
+                result = prevNumberOne + prevNumberTwo;
+                // Setting correct prev number
+                prevNumberOne = prevNumberTwo;           
+                prevNumberTwo = result;         
+            }
+
+            return result;
+
+        }
+
+        
+
 
     }
 }
