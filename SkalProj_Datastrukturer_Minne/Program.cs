@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Design;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 
 namespace SkalProj_Datastrukturer_Minne
@@ -23,9 +24,9 @@ namespace SkalProj_Datastrukturer_Minne
                     + "\n3. Examine a Stack"
                     + "\n4. CheckParenthesis"
                     + "\n5. RecursiveEven"
-                    + "\n6. fibonacciCalc n=11"
+                    + "\n6. fibonacciCalc"
                     + "\n7. IterativeEven"
-                    + "\n8. fibonacciCalcIterative n=11"
+                    + "\n8. fibonacciCalcIterative"
                     + "\n0. Exit the application");
                 char input = ' '; //Creates the character input to be used with the switch-case below.
                 try
@@ -52,16 +53,16 @@ namespace SkalProj_Datastrukturer_Minne
                         CheckParanthesis();
                         break;
                     case '5':
-                        Console.WriteLine(RecursiveEven(11));
+                        RecursiveEvenCaller();
                         break;
                     case '6':
-                        Console.WriteLine(fibonacciCalc(12));
+                        fibonacciCalcCaller();
                         break;
                     case '7':
-                        Console.WriteLine(IterativeEven(11));
+                        IterativeEvenCaller();
                         break;
                     case '8':
-                        Console.WriteLine(fibonacciCalcIterative(12));
+                        fibonacciCalcIterativeCaller();
                         break;
                     case '0':
                         Environment.Exit(0);
@@ -318,6 +319,21 @@ namespace SkalProj_Datastrukturer_Minne
 
         }
 
+
+        static void RecursiveEvenCaller()
+        {
+            Console.WriteLine("Enter number: ");
+
+            try
+            {
+                int input = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(RecursiveEven(input));
+            }
+            catch
+            {
+                Console.WriteLine("Not quite right. Try again!");
+            }
+        }
         static int RecursiveEven(int n)
         {
             if (n == 1)
@@ -325,6 +341,20 @@ namespace SkalProj_Datastrukturer_Minne
 
             return 2 + RecursiveEven(n - 1);
 
+        }
+        static void fibonacciCalcCaller()
+        {
+            Console.WriteLine("Enter number: ");
+
+            try
+            {
+                int input = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(fibonacciCalc(input));
+            }
+            catch
+            {
+                Console.WriteLine("Not quite right. Try again!");
+            }
         }
 
         static int fibonacciCalc(int n)
@@ -337,9 +367,38 @@ namespace SkalProj_Datastrukturer_Minne
 
         }
 
+        static void IterativeEvenCaller()
+        {
+            Console.WriteLine("Enter number: ");
+
+            try
+            {
+                int input = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(IterativeEven(input));
+            }
+            catch
+            {
+                Console.WriteLine("Not quite right. Try again!");
+            }
+        }
+
         static int IterativeEven(int n)
         {
             return n * 2;
+        }
+        static void fibonacciCalcIterativeCaller()
+        {
+            Console.WriteLine("Enter number: ");
+
+            try
+            {
+                int input = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(fibonacciCalcIterative(input));
+            }
+            catch
+            {
+                Console.WriteLine("Not quite right. Try again!");
+            }
         }
 
         static int fibonacciCalcIterative(int n)
@@ -365,9 +424,6 @@ namespace SkalProj_Datastrukturer_Minne
             return result;
 
         }
-
-        
-
 
     }
 }
